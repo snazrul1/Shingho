@@ -1,4 +1,5 @@
 import numpy
+from multiprocessing.pool import ThreadPool
 from sirius import utils
 
 class basic_stats(object):
