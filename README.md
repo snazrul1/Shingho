@@ -1,2 +1,2 @@
 # Tornado
-Tornado is a PySpark based statistical library designed for Big Data applications.
+Tornado is a robust, Python and Spark based statistical library designed for Big Data applications.
