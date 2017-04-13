@@ -7,8 +7,6 @@ def multiThread(fn, fields, index_field = None, threading = False):
   :param fields [list of int]: Fields to multithread on
   :returns [dict]: Dictionary of keys with results
   '''
-  fn = fn(index_field = index_field)
-  
   if threading:
     pool = ThreadPool(processes = len(fields))
     results = pool.map(fn, fields)
