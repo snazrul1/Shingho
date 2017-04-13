@@ -1,3 +1,4 @@
+import os
 from shingho.single_thread_stats import rdd_stats
 
 class basic_stats(object):
@@ -15,7 +16,7 @@ class basic_stats(object):
       self.rdd = rdd
     else:
       self.rdd = rdd.sample(sampling)
-    unix_output = !spark-submit --version
+    unix_output = os.system(spark-submit --version)
     self.version = int(unix_output[4].split()[-1][0])
     
   def mean(self, fields = 'ALL', index_field = None, threading = False):
