@@ -27,7 +27,7 @@ class basic_stats(object):
      :param threading [bool]: Multithread each field on a thread
      :returns [dict]: dictionary of mean value with keys
      '''
-      
+      #Spark DataFrame is faster for this calculation but is only available for Spark 2x
       if self.version >= 2:
         stats_object = rdd_stats(rdd = self.rdd,
                                  sampling = self.sampling)
