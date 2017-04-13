@@ -1,14 +1,21 @@
 from multiprocessing.pool import ThreadPool
 
-def multThread(fn, keys):
+def multThread(fn, fields, threading = False):
   '''
   Multithreading codes
   :param fn [python function]: Function on each thread
-  :param keys [list of int]: Keys to multithread on
+  :param fields [list of int]: Fields to multithread on
   :returns [dict]: Dictionary of keys with results
   '''
-  pool = ThreadPool(processes = len(keys))
-  results = pool.map(fn, keys)
-  pool.close()
-  pool.terminate()
+  if threading:
+    pool = ThreadPool(processes = len(fields))
+    results = pool.map(fn, fields)
+    pool.close()
+    pool.terminate()
+    
+  else:
+    results = {}
+    for f in fields:
+      results[f] = fn(f)
+      
   return results
