@@ -1,7 +1,7 @@
 import numpy
 from shingho.untils import multiThread
 
-class basic_rdd_stats(object):
+class rdd_stats(object):
   '''
   Calculate sample statistics
   '''
