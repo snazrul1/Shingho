@@ -50,7 +50,7 @@ class basic_stats(object):
       return mean_values
                                 
         
-  def median(self, fields = 'ALL', index_field = None, threading=False):
+  def median(self, fields = 'ALL', index_field = None, threading = False):
      '''
      Calculates median value 
      :param fields [list of int]: list of fields 
@@ -59,7 +59,7 @@ class basic_stats(object):
      '''
       raise NotImplementedError
     
-  def mode(self, fields = 'ALL', index_field = None, threading=False):
+  def mode(self, fields = 'ALL', index_field = None, threading = False):
      '''
      Calculates mode value 
      :param fields [list of int]: list of fields
@@ -68,7 +68,7 @@ class basic_stats(object):
      '''
       raise NotImplementedError
     
-  def std(self, fields = 'ALL', index_field = None, threading=False):
+  def std(self, fields = 'ALL', index_field = None, threading = False):
      '''
      Calculates standard deviation value 
      :param fields [list of int]: list of fields
@@ -77,7 +77,7 @@ class basic_stats(object):
      '''
       raise NotImplementedError
     
-  def mode(self, fields = 'ALL', index_field = None, threading=False):
+  def mode(self, fields = 'ALL', index_field = None, threading = False):
      '''
      Calculates variance value 
      :param fields [list of int]: list of fields
