@@ -12,7 +12,7 @@ class basic_stats(object):
     :param sampling [float]: Sampling rate between 0 and 1
     '''
     self.sampling = sampling
-    if sampling = None:
+    if sampling == None:
       self.rdd = rdd
     else:
       self.rdd = rdd.sample(sampling)
@@ -41,6 +41,7 @@ class basic_stats(object):
           key_count = self.rdd.map(lambda row: (row[index_field], 1))\
               .reduceByKey(lambda x,y : x+y)\
               .collect()    
+          #Change to dictionary!!!
           mean_value = [x[1]/y[1] for x in key_total for y in key_count if x[0]==y[0]]
           return mean_value
       
