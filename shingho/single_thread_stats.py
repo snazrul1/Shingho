@@ -1,5 +1,4 @@
 import numpy
-from shingho.untils import multiThread
 
 class rdd_stats(object):
   '''
