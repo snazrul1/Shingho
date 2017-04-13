@@ -1,5 +1,5 @@
 import numpy
-from sirius.untils import multiThread
+from shingho.untils import multiThread
 
 class basic_stats(object):
   '''
