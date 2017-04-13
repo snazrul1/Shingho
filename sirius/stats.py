@@ -1,5 +1,5 @@
 import numpy
-from sirius.untils import multThread
+from sirius.untils import multiThread
 
 class basic_stats(object):
   '''
@@ -44,7 +44,7 @@ class basic_stats(object):
           mean_value = [x[1]/y[1] for x in key_total for y in key_count if x[0]==y[0]]
           return mean_value
       
-      mean_values = multThread(fn = single_thread_mean, 
+      mean_values = multiThread(fn = single_thread_mean, 
                                fields = fields, 
                                threading = threading)
           
