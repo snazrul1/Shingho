@@ -1,4 +1,4 @@
-from shingho.single_thread_rdd import rdd_stats
+from shingho.single_thread_stats import rdd_stats
 
 class basic_stats(object):
   '''
@@ -26,7 +26,7 @@ class basic_stats(object):
      :param threading [bool]: Multithread each field on a thread
      :returns [dict]: dictionary of mean value with keys
      '''
-      mean_values = multiThread(fn = stats.mean,
+      mean_values = multiThread(fn = rdd_stats.mean,
                                 index_field = index_field,
                                 fields = fields, 
                                 threading = threading)
