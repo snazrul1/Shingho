@@ -38,7 +38,6 @@ class rdd_stats(object):
       key_count = self.rdd.map(lambda row: (row[index_field], 1))\
           .reduceByKey(lambda x,y : x+y)\
           .collect()    
-      #Change to dictionary!!!
       mean_dict = {}
       for k in key_total.keys:
         mean_dict[k] = key_total[k] / key_count(k)
