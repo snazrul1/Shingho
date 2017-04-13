@@ -32,7 +32,7 @@ class basic_stats(object):
                         .reduce(lambda x,y : x+y)
                         .map(lambda x,y : x/y)
                         .top(1)
-          return ('ALL', mean_value)
+          mean_dict = ('ALL', mean_value)
         
         else:
           key_total = self.rdd.map(lambda row: (row[index_field], row[f]))\
@@ -42,8 +42,11 @@ class basic_stats(object):
               .reduceByKey(lambda x,y : x+y)\
               .collect()    
           #Change to dictionary!!!
-          mean_value = [x[1]/y[1] for x in key_total for y in key_count if x[0]==y[0]]
-          return mean_value
+          mean_dict = {}
+          for k in key_total.keys:
+            mean_dict[k] = key_total[k] / key_count(k)
+        
+        return mean_dict
       
       mean_values = multiThread(fn = single_thread_mean, 
                                fields = fields, 
