@@ -1,1 +1,5 @@
-
+__author__ = "Shingho Development Team"
+__maintainer__ = "Syed Sadat Nazrul"
+__maintainer_email__ ="sadatnazrul@gmail.com"
+__date__ = "PENDING"
+__version__ = "1.0"
