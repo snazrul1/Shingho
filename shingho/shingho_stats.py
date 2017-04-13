@@ -1,5 +1,6 @@
 import os
 from shingho.single_thread_stats import rdd_stats, df_stats
+from shingho.utils import multiThread
 
 class basic_stats(object):
   '''
