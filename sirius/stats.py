@@ -22,7 +22,7 @@ class basic_stats(object):
      Calculates mean value of Specific RDD
      :param fields [list of int]: list of fields
      :param index_field [int]: Field for performing groupby operation
-     :param threading [bool]: Multithread each key on a thread
+     :param threading [bool]: Multithread each field on a thread
      :returns [dict]: dictionary of mean value with keys
      '''
       def single_thread_mean(f):
