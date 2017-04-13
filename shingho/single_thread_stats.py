@@ -80,3 +80,65 @@ class rdd_stats(object):
      :returns [float]: mean value
      '''
       raise NotImplementedError
+
+class df_stats(object):
+  '''
+  Calculate sample statistics
+  '''
+  
+  def __init__(self, rdd, sampling = None):
+    '''
+    :param rdd [Spark DF]: Spark DF for analytics
+    :param sampling [float]: Sampling rate between 0 and 1
+    '''
+    self.sampling = sampling
+    if sampling == None:
+      self.df = df
+    else:
+      self.df = df.sample(sampling)
+    
+  def mean(self, fields = 'ALL', index_field = None):
+     '''
+     Calculates mean value of Specific RDD
+     :param fields [list of int]: list of fields
+     :param index_field [int]: Field for performing groupby operation
+     :param threading [bool]: Multithread each field on a thread
+     :returns [dict]: dictionary of mean value with keys
+     '''
+      raise NotImplementedError
+
+  def median(self, fields = 'ALL', index_field = None):
+     '''
+     Calculates median value 
+     :param fields [list of int]: list of fields 
+     :param threading [bool]: Multithread each key on a thread
+     :returns [float]: mean value
+     '''
+      raise NotImplementedError
+    
+  def mode(self, fields = 'ALL', index_field = None):
+     '''
+     Calculates mode value 
+     :param fields [list of int]: list of fields
+     :param threading [bool]: Multithread each key on a thread
+     :returns [float]: mean value
+     '''
+      raise NotImplementedError
+    
+  def std(self, fields = 'ALL', index_field = None, threading = False):
+     '''
+     Calculates standard deviation value 
+     :param fields [list of int]: list of fields
+     :param threading [bool]: Multithread each key on a thread
+     :returns [float]: mean value
+     '''
+      raise NotImplementedError
+    
+  def mode(self, fields = 'ALL', index_field = None):
+     '''
+     Calculates variance value 
+     :param fields [list of int]: list of fields
+     :param threading [bool]: Multithread each key on a thread
+     :returns [float]: mean value
+     '''
+      raise NotImplementedError
