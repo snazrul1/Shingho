@@ -47,7 +47,6 @@ class basic_stats(object):
       mean_values = multiThread(fn = single_thread_mean, 
                                fields = fields, 
                                threading = threading)
-          
       return mean_values
                                 
         
