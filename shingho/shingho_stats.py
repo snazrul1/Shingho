@@ -29,16 +29,17 @@ class basic_stats(object):
      '''
       
       if self.version >= 2:
-        mean_values = multiThread(fn = df_stats.mean,
-                                  index_field = index_field,
-                                  fields = fields, 
-                                  threading = threading)
+        stats_object = rdd_stats(rdd = self.rdd,
+                                 sampling = self.sampling)
+
         
       else:
-        mean_values = multiThread(fn = rdd_stats.mean,
-                                  index_field = index_field,
-                                  fields = fields, 
-                                  threading = threading)
+        stats_object = df_stats(rdd = self.rdd,
+                                sampling = self.sampling)
+        
+      mean_values = multiThread(fn = stats_object.mean(index_field = index_field),
+                                fields = fields, 
+                                threading = threading)
       return mean_values
                                 
         
