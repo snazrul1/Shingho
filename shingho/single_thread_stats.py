@@ -2,7 +2,7 @@ import numpy
 
 class rdd_stats(object):
   '''
-  Calculate sample statistics
+  Calculate sample statistics on a Spark RDD
   '''
   
   def __init__(self, rdd, sampling = None):
@@ -83,7 +83,7 @@ class rdd_stats(object):
 
 class df_stats(object):
   '''
-  Calculate sample statistics
+  Calculate sample statistics on a Saprk DataFrame
   '''
   
   def __init__(self, rdd, sampling = None):
