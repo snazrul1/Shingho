@@ -51,7 +51,21 @@ class basic_stats(object):
      :param threading [bool]: Multithread each key on a thread
      :returns [float]: mean value
      '''
-      raise NotImplementedError
+      #Spark DataFrame is faster for this calculation but is only available for Spark 2x
+      if self.version >= 2:
+        stats_object = rdd_stats(rdd = self.rdd,
+                                 sampling = self.sampling)
+
+        
+      else:
+        stats_object = df_stats(rdd = self.rdd,
+                                sampling = self.sampling)
+        
+      median_values = multiThread(fn = stats_object.median(index_field = index_field),
+                                fields = fields, 
+                                threading = threading)
+      return median_values
+                            
     
   def mode(self, fields = 'ALL', index_field = None, threading = False):
      '''
@@ -60,7 +74,21 @@ class basic_stats(object):
      :param threading [bool]: Multithread each key on a thread
      :returns [float]: mean value
      '''
-      raise NotImplementedError
+      #Spark DataFrame is faster for this calculation but is only available for Spark 2x
+      if self.version >= 2:
+        stats_object = rdd_stats(rdd = self.rdd,
+                                 sampling = self.sampling)
+
+        
+      else:
+        stats_object = df_stats(rdd = self.rdd,
+                                sampling = self.sampling)
+        
+      mode_values = multiThread(fn = stats_object.mode(index_field = index_field),
+                                fields = fields, 
+                                threading = threading)
+      return mode_values
+                            
     
   def std(self, fields = 'ALL', index_field = None, threading = False):
      '''
@@ -69,13 +97,17 @@ class basic_stats(object):
      :param threading [bool]: Multithread each key on a thread
      :returns [float]: mean value
      '''
-      raise NotImplementedError
-    
-  def mode(self, fields = 'ALL', index_field = None, threading = False):
-     '''
-     Calculates variance value 
-     :param fields [list of int]: list of fields
-     :param threading [bool]: Multithread each key on a thread
-     :returns [float]: mean value
-     '''
-      raise NotImplementedError
+      #Spark DataFrame is faster for this calculation but is only available for Spark 2x
+      if self.version >= 2:
+        stats_object = rdd_stats(rdd = self.rdd,
+                                 sampling = self.sampling)
+
+        
+      else:
+        stats_object = df_stats(rdd = self.rdd,
+                                sampling = self.sampling)
+        
+      std_values = multiThread(fn = stats_object.std(index_field = index_field),
+                                fields = fields, 
+                                threading = threading)
+      return std_values
