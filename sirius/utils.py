@@ -1,6 +1,6 @@
 from multiprocessing.pool import ThreadPool
 
-def multThread(fn, fields, threading = False):
+def multiThread(fn, fields, threading = False):
   '''
   Multithreading codes
   :param fn [python function]: Function on each thread
