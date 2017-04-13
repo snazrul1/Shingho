@@ -33,15 +33,14 @@ class basic_stats(object):
                         .map(lambda x,y : x/y)
                         .top(1)
           return ('All', mean_value)
+        
         else:
           key_total = self.rdd.map(lambda row: (row[index_field], row[f]))\
               .reduceByKey(lambda x,y : x+y)\
               .collect()
-          
           key_count = self.rdd.map(lambda row: (row[index_field], 1))\
               .reduceByKey(lambda x,y : x+y)\
               .collect()    
-        
           mean_value = [x[1]/y[1] for x in key_total for y in key_count if x[0]==y[0]]
           return mean_value
       
