@@ -32,7 +32,7 @@ class basic_stats(object):
                         .reduce(lambda x,y : x+y)
                         .map(lambda x,y : x/y)
                         .top(1)
-          return ('All', mean_value)
+          return ('ALL', mean_value)
         
         else:
           key_total = self.rdd.map(lambda row: (row[index_field], row[f]))\
