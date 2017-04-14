@@ -16,23 +16,23 @@ class rdd_stats(object):
     else:
       self.rdd = rdd.sample(sampling)
     
-  def mean(self, fields = 'ALL', index_field = None):
+  def mean(self, field, index_field = None):
      '''
      Calculates mean value
      :param fields [list of int]: list of fields
      :param index_field [int]: Field for performing groupby operation
      :param threading [bool]: Multithread each field on a thread
-     :returns [dict]: dictionary of mean value with keys
+     :returns [dict]: dictionary of values with keys
      '''
     if index_field == None:
-      mean_value = self.rdd.map(lambda row: (row[f], 1))\
+      mean_value = self.rdd.map(lambda row: (row[field], 1))\
                     .reduce(lambda x,y : x+y)
                     .map(lambda x,y : x/y)
                     .top(1)
       mean_dict = ('ALL', mean_value)
 
     else:
-      key_total = self.rdd.map(lambda row: (row[index_field], row[f]))\
+      key_total = self.rdd.map(lambda row: (row[index_field], row[field]))\
           .reduceByKey(lambda x,y : x+y)\
           .collect()
       key_count = self.rdd.map(lambda row: (row[index_field], 1))\
@@ -47,9 +47,9 @@ class rdd_stats(object):
   def median(self, fields = 'ALL', index_field = None):
      '''
      Calculates median value 
-     :param fields [list of int]: list of fields 
+     :param field [int]: field index 
      :param threading [bool]: Multithread each key on a thread
-     :returns [float]: mean value
+     :returns [dict]: dictionary of values with keys
      '''
       raise NotImplementedError
     
@@ -58,27 +58,36 @@ class rdd_stats(object):
      Calculates mode value 
      :param fields [list of int]: list of fields
      :param threading [bool]: Multithread each key on a thread
-     :returns [float]: mean value
+     :returns [dict]: dictionary of values with keys
      '''
-      raise NotImplementedError
+    if index_field == None:
+      mode_value = self.rdd.map(lambda row: (row[f], 1))\
+                    .reduceByKey(lambda x,y : x+y)\
+                    .sortBy(lambda row: row[1], False)\
+                    .top(1)
+      mode_dict = ('ALL', mode_value)
+
+    else:
+      mode_dict = {}
+      index_keys = self.rdd.map(lambda row: row[index_field]).distinct()
+      for k in index_keys:
+        mode_value_k = self.rdd.filter(map row: row[index_field] == k)
+                      .map(lambda row: row[f] 1)\
+                      .reduceByKey(lambda x,y : x+y)\
+                      .sortBy(lambda row: row[1], False)\
+                      .top(1)
+        mode_dict[k] = mode_value_k
+    return mode_dict
     
   def std(self, fields = 'ALL', index_field = None, threading = False):
      '''
      Calculates standard deviation value 
-     :param fields [list of int]: list of fields
+     :param field [int]: field index 
      :param threading [bool]: Multithread each key on a thread
-     :returns [float]: mean value
+     :returns [dict]: dictionary of values with keys
      '''
       raise NotImplementedError
-    
-  def mode(self, fields = 'ALL', index_field = None):
-     '''
-     Calculates variance value 
-     :param fields [list of int]: list of fields
-     :param threading [bool]: Multithread each key on a thread
-     :returns [float]: mean value
-     '''
-      raise NotImplementedError
+      
 
 class df_stats(object):
   '''
@@ -99,45 +108,45 @@ class df_stats(object):
   def mean(self, fields = 'ALL', index_field = None):
      '''
      Calculates mean value of Specific RDD
-     :param fields [list of int]: list of fields
+     :param field [int]: field index
      :param index_field [int]: Field for performing groupby operation
      :param threading [bool]: Multithread each field on a thread
-     :returns [dict]: dictionary of mean value with keys
+     :returns [dict]: dictionary of values with keys
      '''
       raise NotImplementedError
 
   def median(self, fields = 'ALL', index_field = None):
      '''
      Calculates median value 
-     :param fields [list of int]: list of fields 
+     :param field [int]: field index
      :param threading [bool]: Multithread each key on a thread
-     :returns [float]: mean value
+     :returns [dict]: dictionary of values with keys
      '''
       raise NotImplementedError
     
   def mode(self, fields = 'ALL', index_field = None):
      '''
      Calculates mode value 
-     :param fields [list of int]: list of fields
+     :param field [int]: field index
      :param threading [bool]: Multithread each key on a thread
-     :returns [float]: mean value
+     :returns [dict]: dictionary of values with keys
      '''
       raise NotImplementedError
     
   def std(self, fields = 'ALL', index_field = None, threading = False):
      '''
      Calculates standard deviation value 
-     :param fields [list of int]: list of fields
+     :param field [int]: field index
      :param threading [bool]: Multithread each key on a thread
-     :returns [float]: mean value
+     :returns [dict]: dictionary of values with keys
      '''
       raise NotImplementedError
     
   def mode(self, fields = 'ALL', index_field = None):
      '''
      Calculates variance value 
-     :param fields [list of int]: list of fields
+     :param field [int]: field index
      :param threading [bool]: Multithread each key on a thread
-     :returns [float]: mean value
+     :returns [dict]: dictionary of values with keys
      '''
       raise NotImplementedError
