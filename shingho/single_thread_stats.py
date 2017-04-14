@@ -122,7 +122,7 @@ class df_stats(object):
     else:
       self.df = df.sample(sampling)
     
-  def mean(self, fields = 'ALL', index_field = None):
+  def mean(self, field, index_field = None):
      '''
      Calculates mean value of Specific RDD
      :param field [int]: field index
@@ -132,7 +132,7 @@ class df_stats(object):
      '''
       raise NotImplementedError
 
-  def median(self, fields = 'ALL', index_field = None):
+  def median(self, field, index_field = None):
      '''
      Calculates median value 
      :param field [int]: field index
@@ -141,7 +141,7 @@ class df_stats(object):
      '''
       raise NotImplementedError
     
-  def mode(self, fields = 'ALL', index_field = None):
+  def mode(self, field, index_field = None):
      '''
      Calculates mode value 
      :param field [int]: field index
@@ -150,7 +150,7 @@ class df_stats(object):
      '''
       raise NotImplementedError
     
-  def std(self, fields = 'ALL', index_field = None, threading = False):
+  def std(self, field, index_field = None, threading = False):
      '''
      Calculates standard deviation value 
      :param field [int]: field index
@@ -159,7 +159,7 @@ class df_stats(object):
      '''
       raise NotImplementedError
     
-  def mode(self, fields = 'ALL', index_field = None):
+  def mode(self, field, index_field = None):
      '''
      Calculates variance value 
      :param field [int]: field index
