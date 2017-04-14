@@ -29,7 +29,7 @@ class rdd_stats(object):
                     .reduce(lambda x,y : x+y)
                     .map(lambda x,y : x/y)
                     .top(1)
-      mean_dict = ('ALL', mean_value)
+      mean_dict = {'ALL': mean_value}
 
     else:
       key_total = self.rdd.map(lambda row: (row[index_field], row[field]))\
@@ -51,8 +51,29 @@ class rdd_stats(object):
      :param threading [bool]: Multithread each key on a thread
      :returns [dict]: dictionary of values with keys
      '''
-      raise NotImplementedError
-    
+      if index_field == None:
+        rdd_count = rdd.count()
+        median_value = self.rdd.map(lambda row: row[f])\
+                             .sortBy(lambda row: row[f], False)\
+                             .zipWithIndex\
+                             .filter(lambda row: row[1] == int(rdd_count/2))\
+                             .top(1)
+        median_dict = {'ALL': median_value}
+        
+      else:
+        index_keys = self.rdd.map(lambda row: row[index_field]).distinct()
+        for k in index_keys:
+          rdd_k = rdd.filter(lambda row: row[index_field]==k)
+          rdd_count = rdd.count()
+          median_value_k = self.rdd_k.map(lambda row: row[f])\
+                               .sortBy(lambda row: row[f], False)\
+                               .zipWithIndex\
+                               .filter(lambda row: row[1] == int(rdd_count/2))\
+                               .top(1)
+          median_dict[k] = mean_value_k
+        
+        return median_dict
+
   def mode(self, field, index_field = None):
      '''
      Calculates mode value 
@@ -65,7 +86,7 @@ class rdd_stats(object):
                     .reduceByKey(lambda x,y : x+y)\
                     .sortBy(lambda row: row[1], False)\
                     .top(1)
-      mode_dict = ('ALL', mode_value)
+      mode_dict = {'ALL': mode_value}
 
     else:
       mode_dict = {}
@@ -91,7 +112,7 @@ class rdd_stats(object):
       sq_rdd = self.rdd.map(lambda row: np.square(row[field]))
       sq_of_mean = np.square(self.mean(self.sq_rdd, threading = threading)[1])
       std_value = np.sqrt(mean_of_sq - sq_of_mean)
-      std_dict = ('ALL', std_value)
+      std_dict = {'ALL': std_value}
       
     else:
       std_dict = {}
