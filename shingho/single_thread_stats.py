@@ -18,7 +18,7 @@ class rdd_stats(object):
     
   def mean(self, fields = 'ALL', index_field = None):
      '''
-     Calculates mean value of Specific RDD
+     Calculates mean value
      :param fields [list of int]: list of fields
      :param index_field [int]: Field for performing groupby operation
      :param threading [bool]: Multithread each field on a thread
