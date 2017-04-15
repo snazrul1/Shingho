@@ -7,6 +7,8 @@ Special features of the Shingho statistical library:
 - Multithreading capabilities to better parallelization
 - Leverages both SQL and MapReduce operations for faster processing
 
+
+
 ## Dependencies
 1. Python 2.7+
 2. Spark 1.6.1+ (2.0.0+ recommended)
