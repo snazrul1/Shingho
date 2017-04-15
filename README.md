@@ -11,7 +11,7 @@ Special features of the Shingho statistical library:
 
 ## Dependencies
 1. Python 2.7+
-2. Spark 1.6.1+ (2.0.0+ recommended)
+2. Spark 1.6.1+ (*2.0.0+ recommended*)
 3. Anaconda 4.3.1+
 
 ## Installation Guide
