@@ -4,9 +4,8 @@
 Shingho is a robust, Python and Spark based statistical library designed for Big Data applications. 
 
 Special features of the Shingho statistical library:
-- Multithreading capabilities
+- Multithreading capabilities to better parallelization
 - Leverages both SQL and MapReduce operations for faster processing
-- Enhanced partition management for key cardinality resistant operations
 
 ## Dependencies
 1. Python 2.7+
