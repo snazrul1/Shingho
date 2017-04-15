@@ -41,7 +41,7 @@ class basic_stats(object):
      :param fields [list of int]: list of fields
      :param index_field [int]: Field for performing groupby operation
      :param threading [bool]: Multithread each field on a thread
-     :returns [dict]: dictionary of mean value with keys
+     :returns [dict]: dictionary of value with keys
      '''        
       mean_values = multiThread(fn = self.stats_object.mean,
                                 fields = fields, 
@@ -54,7 +54,7 @@ class basic_stats(object):
      Calculates median value 
      :param fields [list of int]: list of fields 
      :param threading [bool]: Multithread each key on a thread
-     :returns [float]: mean value
+     :returns [dict]: dictionary of value with keys
      '''
       median_values = multiThread(fn = self.stats_object.median,
                                 fields = fields, 
@@ -80,7 +80,7 @@ class basic_stats(object):
      Calculates standard deviation value 
      :param fields [list of int]: list of fields
      :param threading [bool]: Multithread each key on a thread
-     :returns [float]: mean value
+     :returns [dict]: dictionary of value with keys
      '''        
       std_values = multiThread(fn = self.stats_object.std,
                                 fields = fields, 
