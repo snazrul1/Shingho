@@ -4,7 +4,6 @@ class rdd_stats(object):
   '''
   Calculate sample statistics on a Spark RDD
   '''
-  
   def __init__(self, rdd, sampling = None, index_field = None):
     '''
     :param rdd [Spark RDD]: Spark RDD for analytics
@@ -132,7 +131,6 @@ class df_stats(object):
   '''
   Calculate sample statistics on a Saprk DataFrame
   '''
-  
   def __init__(self, rdd, sampling = None, index_field = None):
     '''
     :param rdd [Spark RDD]: Spark RDD for analytics
