@@ -29,7 +29,7 @@ class basic_stats(object):
      :returns [dict]: dictionary of mean value with keys
      '''
       #Spark DataFrame is faster for this calculation but is only available for Spark 2x
-      if self.version >= 2:
+      if self.version <= 2:
         stats_object = rdd_stats(rdd = self.rdd,
                                  sampling = self.sampling)
 
@@ -52,7 +52,7 @@ class basic_stats(object):
      :returns [float]: mean value
      '''
       #Spark DataFrame is faster for this calculation but is only available for Spark 2x
-      if self.version >= 2:
+      if self.version <= 2:
         stats_object = rdd_stats(rdd = self.rdd,
                                  sampling = self.sampling)
 
@@ -75,7 +75,7 @@ class basic_stats(object):
      :returns [float]: mean value
      '''
       #Spark DataFrame is faster for this calculation but is only available for Spark 2x
-      if self.version >= 2:
+      if self.version <= 2:
         stats_object = rdd_stats(rdd = self.rdd,
                                  sampling = self.sampling)
 
@@ -98,7 +98,7 @@ class basic_stats(object):
      :returns [float]: mean value
      '''
       #Spark DataFrame is faster for this calculation but is only available for Spark 2x
-      if self.version >= 2:
+      if self.version <= 2:
         stats_object = rdd_stats(rdd = self.rdd,
                                  sampling = self.sampling)
 
