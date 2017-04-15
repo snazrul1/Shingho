@@ -7,9 +7,9 @@ class basic_stats(object):
   Calculate sample statistics
   '''
   
-  def __init__(self, data, sampling = None, index_field = None):
+  def __init__(self, rdd, sampling = None, index_field = None):
     '''
-    :param rdd [Spark RDD or DataFrame]: Spark RDD or DataFrame for analytics
+    :param rdd [Spark RDD or DataFrame]: Spark RDD for analytics
     :param sampling [float]: Sampling rate between 0 and 1
     :param threading [bool]: Multithread each field on a thread
     '''
