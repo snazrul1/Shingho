@@ -1,6 +1,6 @@
 import os
 from shingho.single_thread_stats import rdd_stats, df_stats
-from shingho.utils import multiThread
+from shingho.utils import multithread
 
 class basic_stats(object):
   '''
@@ -43,7 +43,7 @@ class basic_stats(object):
      :param threading [bool]: Multithread each field on a thread
      :returns [dict]: dictionary of value with keys
      '''        
-      mean_values = multiThread(fn = self.stats_object.mean,
+      mean_values = multithread(fn = self.stats_object.mean,
                                 fields = fields, 
                                 threading = threading)
       return mean_values
@@ -56,7 +56,7 @@ class basic_stats(object):
      :param threading [bool]: Multithread each key on a thread
      :returns [dict]: dictionary of value with keys
      '''
-      median_values = multiThread(fn = self.stats_object.median,
+      median_values = multithread(fn = self.stats_object.median,
                                 fields = fields, 
                                 threading = threading)
       return median_values
@@ -69,7 +69,7 @@ class basic_stats(object):
      :param threading [bool]: Multithread each key on a thread
      :returns [float]: mean value
      '''
-      mode_values = multiThread(fn = self.stats_object.mode,
+      mode_values = multithread(fn = self.stats_object.mode,
                                 fields = fields, 
                                 threading = threading)
       return mode_values
@@ -82,7 +82,7 @@ class basic_stats(object):
      :param threading [bool]: Multithread each key on a thread
      :returns [dict]: dictionary of value with keys
      '''        
-      std_values = multiThread(fn = self.stats_object.std,
+      std_values = multithread(fn = self.stats_object.std,
                                 fields = fields, 
                                 threading = threading)
       return std_values
