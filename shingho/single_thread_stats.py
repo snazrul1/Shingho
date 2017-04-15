@@ -100,7 +100,7 @@ class rdd_stats(object):
         mode_dict[k] = mode_value_k
     return mode_dict
     
-  def std(self, field, index_field = None, threading = False):
+  def std(self, field, index_field = None):
      '''
      Calculates standard deviation value 
      :param field [int]: field index 
