@@ -2,7 +2,7 @@
 
 ## Style
 - All codes must adhere to [PEP8](https://www.python.org/dev/peps/pep-0008/)
-- Variables names must be meaningful and underscore delimiter separated. 
+- Variables names must be meaningful and underscore delimiter separated
   - e.g. **variable_name** instead of **variableName**
 - Indents are to be 4 spaces long 
 
@@ -11,3 +11,6 @@
 - New branches will only be merged to development after passing all unit tests and integration tests
 - Proper coding practices are to be observed for merging
 - Development branch will merged to master branch (gold standard) upon release of new version
+
+## Other information
+- [Latest Projects](https://github.com/snazrul1/Shingho/projects)
