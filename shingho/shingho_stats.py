@@ -30,8 +30,6 @@ class basic_stats(object):
       self.stats_object = rdd_stats(rdd = self.rdd,
                                sampling = self.sampling,
                                index_field = self.index_field)
-
-
     else:
       self.stats_object = df_stats(rdd = self.rdd,
                               sampling = self.sampling,
