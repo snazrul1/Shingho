@@ -19,7 +19,7 @@ Special features of the Shingho statistical library:
 ## User Guide
 - Tutorials for using Shingho can be found [here](https://github.com/snazrul1/Shingho/tree/master/examples).
 
-## Developer Guide
-- To contribute to the Shingho community, refer to the document [here](https://github.com/snazrul1/Shingho/tree/master/developer_gudelines).
+## Contributing
+- Refer to the document [here](https://github.com/snazrul1/Shingho/tree/master/developer_gudelines) to help you get started on contributing to our project.
 
 ## LICENSE
