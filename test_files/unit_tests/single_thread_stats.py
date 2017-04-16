@@ -8,7 +8,7 @@ except importError:
   sys.path.insert(0, '../../../shingho')
   import shingho
   
-from shingho import single_thread_stats
+from shingho.single_thread_stats import rdd_stats, df_stats
 from pyspark import SparkContext, SparkConf
 import numpy as np
 import unittest
