@@ -47,8 +47,7 @@ setup(
     version="1.0",
     cmdclass={'build_ext': build_ext},
     setup_requires=['numpy', 'setuptools>=18.0'],
-    install_requires=["numpy>=1.9", "scipy>=0.14", "matplotlib>=1.5", 
-                      "palettable>=2.1.1", "sympy"],
+    install_requires=["numpy>=1.9", "scipy>=0.14", "matplotlib>=1.5", "pyspark>=1.6"],
     extras_require={
         ':python_version == "2.7"': [
             'enum34',
@@ -68,8 +67,7 @@ setup(
     description="Tornado is a robust, Python and Spark based statistical" 
                  "library designed for Big Data applications.",
     long_description=long_desc,
-    keywords=["VASP", "gaussian", "ABINIT", "nwchem", "materials", "project",
-              "electronic", "structure", "analysis", "phase", "diagrams"],
+    keywords=["Big Data", "Spark", "PySpark", "Statistics"],
     classifiers=[
         "Programming Language :: Python :: 2",
         "Programming Language :: Python :: 2.7",
