@@ -42,3 +42,6 @@ class Single_Thread_Stats_Unit_Test(unittest.TestCase):
                                        fields = first_values_list,
                                        threading = False)
       self.assertEqual(function_result, expected_result)
+
+if __name__ == '__main__':
+  unittest.main()
