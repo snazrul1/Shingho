@@ -30,8 +30,8 @@ class Single_Thread_Stats_Unit_Test(unittest.TestCase):
       Check utils.multithreading with threading
       '''
       function_result = multithreading(fn = sum_function, 
-                                         fields = first_values_list,
-                                         threading = True)
+                                       fields = first_values_list,
+                                       threading = True)
       self.assertEqual(function_result, expected_result)
       
   def multithreading_without_threading(self):
@@ -39,6 +39,6 @@ class Single_Thread_Stats_Unit_Test(unittest.TestCase):
       Check utils.multithreading without threading
       '''
       function_result = multithreading(fn = sum_function, 
-                                         fields = first_values_list,
-                                         threading = False)
+                                       fields = first_values_list,
+                                       threading = False)
       self.assertEqual(function_result, expected_result)
