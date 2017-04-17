@@ -174,7 +174,7 @@ class df_stats(object):
         SELECT AVG(_%d) 
         FROM source_table
         GROUP BY _%d
-        '''%(field, index_field)
+        '''%(field, self.index_field)
       return self._sql_query(query)
 
   def median(self, field):
