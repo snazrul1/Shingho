@@ -2,7 +2,7 @@ import numpy
 
 class rdd_stats(object):
   '''
-  Calculate sample statistics on a Spark RDD
+  Calculate sample statistics on a Spark RDD. Recommended for row operations.
   '''
   def __init__(self, rdd, sampling = None, index_field = None):
     '''
@@ -129,7 +129,7 @@ class rdd_stats(object):
 
 class df_stats(object):
   '''
-  Calculate sample statistics on a Saprk DataFrame. Recommended for column operations.
+  Calculate sample statistics on a Spark DataFrame. Recommended for column operations.
   '''
   def __init__(self, df, sampling = None, index_field = None):
     '''
