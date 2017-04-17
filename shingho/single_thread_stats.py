@@ -143,6 +143,18 @@ class df_stats(object):
     else:
       self.df = df.sample(sampling)
       self.index_field = index_field
+      
+    #Dataframe will be referred as "source_table" in queries
+    self.df.createOrReplaceTempView("source_table")
+      
+    def _sql_query(query):
+      '''
+      Convert SQL language to Spark SQL query on DataFrame
+      :param query [str]: query
+      :returns [dict]: query results
+      '''
+      df2 = spark.sql(query)
+      return df2.collect()
     
   def mean(self, field):
      '''
@@ -152,7 +164,18 @@ class df_stats(object):
      :param threading [bool]: Multithread each field on a thread
      :returns [dict]: dictionary of values with keys
      '''
-      raise NotImplementedError
+      if self.index_field == None:
+        query = '''
+        SELECT AVG(%d) 
+        FROM source_table
+        '''%(field)
+      else:
+        query = '''
+        SELECT AVG(%d) 
+        FROM source_table
+        GROUP BY column_name(%d)
+        '''%(field, index_field)
+      return self._sql_query(query)
 
   def median(self, field):
      '''
