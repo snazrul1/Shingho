@@ -166,14 +166,14 @@ class df_stats(object):
      '''
       if self.index_field == None:
         query = '''
-        SELECT AVG(%d) 
+        SELECT AVG(_%d) 
         FROM source_table
         '''%(field)
       else:
         query = '''
-        SELECT AVG(%d) 
+        SELECT AVG(_%d) 
         FROM source_table
-        GROUP BY column_name(%d)
+        GROUP BY _%d
         '''%(field, index_field)
       return self._sql_query(query)
 
