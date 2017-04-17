@@ -32,7 +32,7 @@ class basic_stats(object):
                                index_field = self.index_field)
     else:
       self.df = rdd.toDF
-      self.stats_object = df_stats(rdd = self.df,
+      self.stats_object = df_stats(df = self.df,
                               sampling = self.sampling,
                               index_field = self.index_field)
     
