@@ -160,8 +160,6 @@ class df_stats(object):
      '''
      Calculates mean value of Specific RDD
      :param field [int]: field index
-     :param index_field [int]: Field for performing groupby operation
-     :param threading [bool]: Multithread each field on a thread
      :returns [dict]: dictionary of values with keys
      '''
       if self.index_field == None:
@@ -181,7 +179,6 @@ class df_stats(object):
      '''
      Calculates median value 
      :param field [int]: field index
-     :param threading [bool]: Multithread each key on a thread
      :returns [dict]: dictionary of values with keys
      '''
       raise NotImplementedError
@@ -190,7 +187,6 @@ class df_stats(object):
      '''
      Calculates mode value 
      :param field [int]: field index
-     :param threading [bool]: Multithread each key on a thread
      :returns [dict]: dictionary of values with keys
      '''
       raise NotImplementedError
@@ -199,7 +195,6 @@ class df_stats(object):
      '''
      Calculates standard deviation value 
      :param field [int]: field index
-     :param threading [bool]: Multithread each key on a thread
      :returns [dict]: dictionary of values with keys
      '''
       raise NotImplementedError
@@ -208,7 +203,6 @@ class df_stats(object):
      '''
      Calculates variance value 
      :param field [int]: field index
-     :param threading [bool]: Multithread each key on a thread
      :returns [dict]: dictionary of values with keys
      '''
       raise NotImplementedError
