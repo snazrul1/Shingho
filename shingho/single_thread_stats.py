@@ -129,11 +129,11 @@ class rdd_stats(object):
 
 class df_stats(object):
   '''
-  Calculate sample statistics on a Saprk DataFrame
+  Calculate sample statistics on a Saprk DataFrame. Recommended for column operations.
   '''
-  def __init__(self, rdd, sampling = None, index_field = None):
+  def __init__(self, df, sampling = None, index_field = None):
     '''
-    :param rdd [Spark RDD]: Spark RDD for analytics
+    :param rdd [Spark DataFrame]: Spark DataFrame for analytics
     :param sampling [float]: Sampling rate between 0 and 1
     :param threading [bool]: Multithread each field on a thread
     '''
