@@ -3,7 +3,7 @@
 ## Style
 - All codes must adhere to [PEP8](https://www.python.org/dev/peps/pep-0008/)
 - Variables names must be meaningful 
-- Use snake_case. Not camelCase
+- Use snake_case for variable names (i.e. not camelCase)... consistency is good...
   - e.g. **variable_name** instead of **variableName**
 - Indents are to be 4 spaces long 
 
